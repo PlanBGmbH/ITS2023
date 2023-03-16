@@ -8,5 +8,5 @@ En este repositiorio encontrarás toda la información relacionada con la sesió
 ## English ##
 In this repository you will find all the information related to the Introduction to Fusion Teams based development session:
 - ITS-API:  ASP. NET Core project to implement the API.
-- BITSCustomConnector: Custom Connector source code and packages. 
+- ITSCustomConnector: Custom Connector source code and packages. 
 - Lab-Guide: Step by Step guide to follow in order to complete the session demo.
