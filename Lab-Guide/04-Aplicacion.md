@@ -13,4 +13,5 @@ Ahora ya estamos listos para poder desarrollar nuestra aplicación de gestión d
 2. Acceso por parte de usuarios:
 - Introducir nuevos partes de horas.
 - Consultar y modificar partes de horas existentes.
+
 ![Power App Home Screen](./assets/powerapp-home-screen.png)
