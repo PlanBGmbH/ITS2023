@@ -1,5 +1,6 @@
-# BizzSummit2022 - Crear el conector personalizado
-Fusion Teams Workshop for BizzSummit 2022
+# Iberian Technology Summit - Crear el conector personalizado
+Introducción al desarrollo basado en Fusion Teams para ITS 2023
+
 ## Creación de la solución ##
 Antes de empezar a crear nuestra aplicación en Power Apps, recomendamos agrupar todos los componentes bajo una misma [solución](https://docs.microsoft.com/es-es/power-apps/maker/data-platform/solutions-overview). En este sentido, queremos tener la aplicación, los flujos y el conector personalizado en la misma solución, facilitando todas las tareas relativas al mantenimiento de nuestra herramienta de gestión del tiempo.
 ![Import Custom Connector in a solution](./assets/solution-import-custom-connector.png)
