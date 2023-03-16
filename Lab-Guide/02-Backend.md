@@ -1,5 +1,5 @@
-# BizzSummit2022 - Backend
-Fusion Teams Workshop para BizzSummit 2022
+# Iberian Technology Summit - Backend
+Introducción al desarrollo basado en Fusion Teams para ITS 2023
 
 Los componentes que se van a usar en el Back-End son los siguientes: 
 
