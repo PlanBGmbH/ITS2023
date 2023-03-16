@@ -1,6 +1,7 @@
-# BizzSummit2022 - Crear el conector personalizado
-Fusion Teams Workshop for BizzSummit 2022
-## Creación del conecto personalizado ##
+# Iberian Technology Summit - Crear el conector personalizado
+Introducción al desarrollo basado en Fusion Teams para ITS 2023
+
+## Creación del conector personalizado ##
 Para poder utilizar la API será necesario crear el conector personalizado en nuestro entorno de Power Platform. El conector no deja der ser un fichero json o yaml con la definición de las distintas operaciones que éste tendra, así como información relativa a los parámetros de entrada y salida de cada una de estas operaciones.
 Seguidamente presentamos los distintos pasos a seguir.
 ### Generar el fichero de definición del conector ###
