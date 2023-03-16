@@ -1,5 +1,5 @@
-# BizzSummit2022 - Introducción
-Fusion Teams Workshop for BizzSummit 2022
+# Iberian Technology Summit - Introducción
+Introducción al desarrollo basado en Fusion Teams para ITS 2023
 
 Pre-requisitos:
 
