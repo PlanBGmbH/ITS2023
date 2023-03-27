@@ -273,6 +273,10 @@ var app = builder.Build();
  El siguiente paso es publicar la aplicación en Azure. Para ello creamos, dentro de nuestra subscripción, un App Service Plan y un App Service:
  
  <img width="922" alt="image" src="https://user-images.githubusercontent.com/18615795/227872012-8faa093c-0dc3-4ef3-a912-4ce4111890af.png">
+ 
+ Creamos también un componente API Management:
+ 
+ <img width="869" alt="image" src="https://user-images.githubusercontent.com/18615795/227873213-0c8c3a5c-f799-4c1e-ba21-e83843826184.png">
 
  En nuestra solución, botón derecho -> Publicar:
  
@@ -280,7 +284,12 @@ var app = builder.Build();
 
  Configuramos un nuevo destino y seguimos el Wizard, seleccionando el componente Web App creado en Azure:
  
- ![image](https://user-images.githubusercontent.com/18615795/184013691-78afd1a9-60e3-4366-b08d-10c0a84f7c0d.png)
+ ![image](https://user-images.githubusercontent.com/18615795/227872953-40e66944-ac43-4dd9-81ce-226e5bc0f792.png)
+ 
+ Seleccionamos en el último paso el componente API Management:
+
+![image](https://user-images.githubusercontent.com/18615795/227873465-94f73d8f-2bb8-4151-8233-dad30f70dcaf.png)
+
  
  Publicamos la solución. Una vez completado, se abrirá la URL de la webapp en Azure con la solución desplegada:
  
