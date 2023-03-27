@@ -19,11 +19,12 @@ Por último, seleccionamos la versión de .NET Core a utilizar (7.0), habilitand
 
 <img width="514" alt="image" src="https://user-images.githubusercontent.com/18615795/227865219-4b81be4e-cd6d-48f6-8f40-c3cd28d0c69d.png">
 
-Una vez creada la solución, instalamos los Nuget Packages necesarios: 
+Una vez creada la solución, comprobamos e instalamos los Nuget Packages necesarios: 
 
-<img width="514" alt="image" src="https://user-images.githubusercontent.com/18615795/227865208-ba3cd372-654e-4e13-8068-5fcd200c56a3.png">
+<img width="656" alt="image" src="https://user-images.githubusercontent.com/18615795/227865506-6384b566-fde6-492e-91e5-db304c707e66.png">
 
-- Microsoft.Azure.CosmosDB: Librería que nos permite conectarnos y trabajar con Azure Cosmos DB usando la API de SQL.
+- Microsoft.AspNetCore.OpenApi: Permite interactuar con las especificaciones de OpenAPI de los puntos de conexión. El paquete actúa como vínculo entre los modelos de OpenAPI definidos en el paquete y los puntos de conexión definidos en las API.
+- Microsoft.Azure.Cosmos / Microsoft.EntityFramework.Cosmos: Librerías que nos permiten conectarnos y trabajar con Azure Cosmos DB usando la API de SQL.
 - Newtonsoft.Json: Nos permite serializar y deserializar objetos, utilizados para la comunicación con Cosmos DB.
 - Swashbuckle.AspNetCore: Nos permite utilizar Swagger para documentar nuestras APIs.
 
