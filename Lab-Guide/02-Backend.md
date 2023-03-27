@@ -247,7 +247,6 @@ builder.Services.AddSingleton<IBookingsService>(InitializeCosmosBookingsClientIn
 builder.Services.AddSingleton<IProjectsService>(InitializeCosmosProjectsClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBProjectsContainer).GetAwaiter().GetResult());
 builder.Services.AddSingleton<IResourcesService>(InitializeCosmosResourcesClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBResourcesContainer).GetAwaiter().GetResult());
 
-
 var app = builder.Build();
  ```
  
@@ -263,9 +262,6 @@ var app = builder.Build();
             return bookingsService;
         }
  ```
- 
-
-
  Probamos que la aplicación funcione. La lanzamos en local (IIS Express) y comprobamos que Swagger esté bien configurado:
  
  <img width="739" alt="image" src="https://user-images.githubusercontent.com/18615795/227871893-e194ef97-1666-439d-8a0f-131fa38d12de.png">
@@ -274,7 +270,7 @@ var app = builder.Build();
  
  <img width="922" alt="image" src="https://user-images.githubusercontent.com/18615795/227872012-8faa093c-0dc3-4ef3-a912-4ce4111890af.png">
  
- Creamos también un componente API Management:
+ Creamos también un componente API Management y una Blank API
  
  <img width="869" alt="image" src="https://user-images.githubusercontent.com/18615795/227873213-0c8c3a5c-f799-4c1e-ba21-e83843826184.png">
 
@@ -286,10 +282,9 @@ var app = builder.Build();
  
  ![image](https://user-images.githubusercontent.com/18615795/227872953-40e66944-ac43-4dd9-81ce-226e5bc0f792.png)
  
- Seleccionamos en el último paso el componente API Management:
+ Seleccionamos en el último paso el componente API Management y la Blank API que hemos creado:
 
-![image](https://user-images.githubusercontent.com/18615795/227873465-94f73d8f-2bb8-4151-8233-dad30f70dcaf.png)
-
+![image](https://user-images.githubusercontent.com/18615795/227874659-f3b01c31-9ec3-429d-91f1-762bddff49d7.png)
  
  Publicamos la solución. Una vez completado, se abrirá la URL de la webapp en Azure con la solución desplegada:
  
