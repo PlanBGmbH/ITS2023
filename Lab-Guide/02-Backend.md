@@ -7,21 +7,21 @@ Los componentes que se van a usar en el Back-End son los siguientes:
    2. [App Service](https://azure.microsoft.com/es-ES/services/app-service/): Permite compilar, implementar y escalar aplicaciones web y API de forma automática. En nuestro caso implementaremos, i alojaremos una aplicación .NET Core Web API.
    3. [Cosmos DB](https://azure.microsoft.com/es-ES/services/cosmos-db/): Es una base de datos NoSQL sin servidor totalmente administrada para aplicaciones de alto rendimiento de cualquier tamaño o escala.
 
-Empezamos con la creación de la solución que conformará el Backend. Para ello abrimos Visual Studio y creamos un nuevo proyecto, de tipo ASP.NET Core Web API:
+Empezamos con la creación de la solución que conformará el Backend. Para ello abrimos Visual Studio 2022 y creamos un nuevo proyecto, de tipo ASP.NET Core Web API:
 
-![image](https://user-images.githubusercontent.com/18615795/227861010-f270a4b3-cb0e-4126-b719-ab2e5a5fec35.png)
+<img width="514" alt="image" src="https://user-images.githubusercontent.com/18615795/227864928-b462fb8c-d55d-403c-955f-59a2688f0881.png">
 
 A continuación le damos un nombre y una ruta donde guardar la solución:
 
-![image](https://user-images.githubusercontent.com/18615795/227860846-9b5a2863-c497-4402-a7fd-3d03cbc88245.png)
+<img width="515" alt="image" src="https://user-images.githubusercontent.com/18615795/227864251-6820bd21-06fb-4a59-963f-785c999dbb53.png">
 
 Por último, seleccionamos la versión de .NET Core a utilizar (7.0), habilitando soporte para OpenAPI:
 
-![image](https://user-images.githubusercontent.com/18615795/227861148-d98eb7a7-736d-4df0-a29a-aa9477571064.png)
+<img width="514" alt="image" src="https://user-images.githubusercontent.com/18615795/227865219-4b81be4e-cd6d-48f6-8f40-c3cd28d0c69d.png">
 
 Una vez creada la solución, instalamos los Nuget Packages necesarios: 
 
-![image](https://user-images.githubusercontent.com/18615795/182648595-3d8f15bc-b600-47fa-bfe9-5cf3dea2cf23.png)
+<img width="514" alt="image" src="https://user-images.githubusercontent.com/18615795/227865208-ba3cd372-654e-4e13-8068-5fcd200c56a3.png">
 
 - Microsoft.Azure.CosmosDB: Librería que nos permite conectarnos y trabajar con Azure Cosmos DB usando la API de SQL.
 - Newtonsoft.Json: Nos permite serializar y deserializar objetos, utilizados para la comunicación con Cosmos DB.
