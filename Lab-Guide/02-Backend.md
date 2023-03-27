@@ -190,26 +190,53 @@ Una vez tenemos los servicios, vamos a implementar los controladores (Controller
 
 Configuramos los servicios que dependen del proyecto.
 
-![image](https://user-images.githubusercontent.com/18615795/182646899-76ca6af4-fd2e-470e-8116-6b970a5f6c04.png)
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/18615795/227866703-c00bb8c4-a814-488b-98c4-8fb8272a3c97.png">
 
-Para ello, editamos el método Configure Services de la clase Startup, añadiendo como servicios (AddSingleton) mediante inyección de dependencias la inicialización única de la Cosmos DB y las colecciones:
+En nuestra subscripción de Azure, creamos una Cosmos DB, preferiblemente dentro de un grupo de recursos propio al proyecto. Necesitamos definir los secretos de usuario, que contienen todos los valores necesarios para acceder a la Cosmos DB.
+
+Primero, nos conectamos a la Cosmos DB usando el wizard que proporciona el VS.
+
+Segundo, creamos los user secrets necesarios para conectarnos des de nuestra solución:
+
+<img width="337" alt="image" src="https://user-images.githubusercontent.com/18615795/227867418-53bc6f0f-7039-4ae0-a5f0-6b571d5c430b.png">
 
 ```cs
-public void ConfigureServices(IServiceCollection services)
 {
-   services.AddControllers();
-   services.AddSwaggerGen();
-   var CosmosDBEndpoint = Configuration["CosmosDB:Endpoint"];
-   var CosmosDBKey = Configuration["CosmosDB:Key"];
-   var CosmosDBDatabaseName = Configuration["CosmosDB:DatabaseName"];
-   var CosmosDBBookingsContainer = Configuration["CosmosDB:BookingsContainer"];
-   var CosmosDBProjectsContainer = Configuration["CosmosDB:ProjectsContainer"];
-   var CosmosDBResourcesContainer = Configuration["CosmosDB:ResourcesContainer"];
-
-   services.AddSingleton<IBookingsService>(InitializeCosmosBookingsClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBBookingsContainer).GetAwaiter().GetResult());
-   services.AddSingleton<IProjectsService>(InitializeCosmosProjectsClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBProjectsContainer).GetAwaiter().GetResult());
-   services.AddSingleton<IResourcesService>(InitializeCosmosResourcesClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBResourcesContainer).GetAwaiter().GetResult());
+  "ConnectionStrings": {
+    "CosmosDB:Endpoint": "https://itscosmosdb.documents.azure.com:443/",
+    "CosmosDB:Key": "PrimaryKeyCosmosDB",
+    "CosmosDB:DatabaseName": "ITS",
+    "CosmosDB:BookingsContainer": "Bookings",
+    "CosmosDB:ProjectsContainer": "Projects",
+    "CosmosDB:ResourcesContainer": "Resources"
+  }
 }
+```
+Tercero, editamos el fichero Program.cs, añadiendo como servicios (AddSingleton) mediante inyección de dependencias la inicialización única de la Cosmos DB y las colecciones:
+
+```cs
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var CosmosDBEndpoint = builder.Configuration.GetConnectionString("CosmosDB:Endpoint");
+var CosmosDBKey = builder.Configuration.GetConnectionString("CosmosDB:Key");
+var CosmosDBDatabaseName = builder.Configuration.GetConnectionString("CosmosDB:DatabaseName");
+var CosmosDBBookingsContainer = builder.Configuration.GetConnectionString("CosmosDB:BookingsContainer");
+var CosmosDBProjectsContainer = builder.Configuration.GetConnectionString("CosmosDB:ProjectsContainer");
+var CosmosDBResourcesContainer = builder.Configuration.GetConnectionString("CosmosDB:ResourcesContainer");
+
+builder.Services.AddSingleton<IBookingsService>(InitializeCosmosBookingsClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBBookingsContainer).GetAwaiter().GetResult());
+builder.Services.AddSingleton<IProjectsService>(InitializeCosmosProjectsClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBProjectsContainer).GetAwaiter().GetResult());
+builder.Services.AddSingleton<IResourcesService>(InitializeCosmosResourcesClientInstanceAsync(CosmosDBEndpoint, CosmosDBKey, CosmosDBDatabaseName, CosmosDBResourcesContainer).GetAwaiter().GetResult());
+
+
+var app = builder.Build();
  ```
  
  En cada uno de los métodos InitializeCosmosXXX, nos aseguramos que la Cosmos DB y el container existe (sino lo creamos automáticamente) y creamos la instancia única del servicio:
