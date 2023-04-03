@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAoJVEHYO4o0SZkwiC/z++cgAAAAACAAAAAAAQZgAAAAEAACAAAABYR9ghChJvXwRbvwKkNYzbdr43UOuHQ1ekyGca3Wnh9wAAAAAOgAAAAAIAACAAAACfiL43IoFkBLzhNXN67479Dxkr4u5kwj2P/4/v4Sa9i4AAAADD0MMUNlTC8KBqrj0OOtT7B0hOyB4r42DYMIuEFBKPi/5TzdeKAtxXyOCgH1YXljwnqKkl6OcFtwP5iX67St3Upf+cMnJZ1Gvj2/YRrsEPPXzyr72iUsTPOHHYMpcKLs3uF+3CXFFy42O27k3cT6uQTs9V49wgnwMzVAg6QPRdrEAAAADJQF+xLXCGV9DUD09T/IFmN6qO7ejqJkbHy7wtCRej5cxW6E4h+9PTm3dYUNC2eUacOZ9hPVmWg+fMgt00S0kn</EncryptedPassword>
+    <History>True|2023-04-03T03:56:46.1235371Z;True|2023-04-03T05:39:18.5939016+02:00;True|2023-04-03T05:35:59.7578851+02:00;False|2023-04-03T05:09:28.1984636+02:00;False|2023-04-03T05:08:01.6219476+02:00;False|2023-04-03T04:58:33.5237081+02:00;False|2023-03-27T10:48:05.8152938+02:00;False|2023-03-27T10:38:09.7746203+02:00;False|2023-03-27T10:36:05.7235004+02:00;False|2023-03-27T10:18:46.5981867+02:00;False|2023-03-27T09:58:59.9510940+02:00;False|2023-03-27T09:52:55.7204062+02:00;False|2023-03-27T09:49:50.4045078+02:00;False|2023-03-27T09:46:48.8837139+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="CosmosDB:BookingsContainer">
+      <Value>Bookings</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="CosmosDB:DatabaseName">
+      <Value>ITS</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="CosmosDB:Endpoint">
+      <Value>https://itscosmosdb.documents.azure.com:443/</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="CosmosDB:Key">
+      <Value>c3kv9noFdsi8gLGdLvsqGL0KDQAxrvtUONqZrKk5klvCjQxwhhTory8QlnAnCeUbUSgtagdlfWcGACDbwA7JNQ==</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="CosmosDB:ProjectsContainer">
+      <Value>Projects</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="CosmosDB:ResourcesContainer">
+      <Value>Resources</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="itscdb">
+      <Value>https://itscosmosdb.documents.azure.com:443/</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

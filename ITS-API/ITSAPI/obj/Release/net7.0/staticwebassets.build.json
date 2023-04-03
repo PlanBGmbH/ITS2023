@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "jCdHNpb1yWLhBamO3wxSDJA0mVojPIZrlt3pPl6wAjk=",
+  "Source": "ITSAPI",
+  "BasePath": "_content/ITSAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

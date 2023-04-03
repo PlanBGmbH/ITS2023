@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "cosmosdb1": {
+      "restored": true,
+      "restoreTime": "2023-03-27T08:40:49.5365664Z"
+    },
+    "apis1": {
+      "restored": true,
+      "restoreTime": "2023-04-03T03:09:44.0115395Z"
+    }
+  },
+  "parameters": {
+    "cosmosdb1.subscriptionId": {
+      "Name": "cosmosdb1.subscriptionId",
+      "Type": "subscription",
+      "Value": "928531ef-6718-48b5-95ab-2a505985bfd6"
+    },
+    "cosmosdb1.resourceGroupName": {
+      "Name": "cosmosdb1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "ITS"
+    },
+    "apis1.resourceGroupName": {
+      "Name": "apis1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "ITS"
+    },
+    "apis1.subscriptionId": {
+      "Name": "apis1.subscriptionId",
+      "Type": "subscription",
+      "Value": "928531ef-6718-48b5-95ab-2a505985bfd6"
+    }
+  }
+}
