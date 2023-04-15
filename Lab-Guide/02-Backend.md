@@ -297,7 +297,7 @@ Finally, we also created a new component in Azure, API Management.
 
 We copy, from the web application, the link to the OpenAPI specification:
  
- ![image](https://user-images.githubusercontent.com/18615795/184014085-fda0f48f-e3b5-4788-a764-abdd395b3c1e.png)
+ <img width="495" alt="image" src="https://user-images.githubusercontent.com/18615795/232249874-8abf920a-60a9-4458-af16-771c34df6616.png">
 
 In the API Management component, we create a new API from the OpenAPI definition:
  
