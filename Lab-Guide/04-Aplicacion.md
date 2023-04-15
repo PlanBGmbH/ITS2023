@@ -1,17 +1,17 @@
 # Iberian Technology Summit - Crear el conector personalizado
 Introducción al desarrollo basado en Fusion Teams para ITS 2023
 
-## Creación de la solución ##
-Antes de empezar a crear nuestra aplicación en Power Apps, recomendamos agrupar todos los componentes bajo una misma [solución](https://docs.microsoft.com/es-es/power-apps/maker/data-platform/solutions-overview). En este sentido, queremos tener la aplicación, los flujos y el conector personalizado en la misma solución, facilitando todas las tareas relativas al mantenimiento de nuestra herramienta de gestión del tiempo.
+## Creation of the solution ##
+Before starting to create our application in Power Apps, we recommend grouping all the components under the same [solution](https://docs.microsoft.com/es-es/power-apps/maker/data-platform/solutions-overview). In this sense, we want to have the application, the flows and the customized connector in the same solution, facilitating all the tasks related to the maintenance of our time management tool.
 ![Import Custom Connector in a solution](./assets/solution-import-custom-connector.png)
 
-### Desarollo de la aplicación en Power Apps ###
-Ahora ya estamos listos para poder desarrollar nuestra aplicación de gestión del tiempo en Power Apps. La aplicación debería incluir aspectos como:
-1. Acceso por parte de usuarios administradores para:
-- Crear, modificar o eliminar proyectos.
-- Crear, modificar o eliminar la asignación de personas a proyectos.
-2. Acceso por parte de usuarios:
-- Introducir nuevos partes de horas.
-- Consultar y modificar partes de horas existentes.
+### Application development in Power Apps ###
+Now we are ready to develop our time management application in Power Apps. The application should include aspects such as:
+1. Access by administrator users to:
+- Create, modify or delete projects.
+- Create, modify or delete the assignment of people to projects.
+2. Access by users:
+- Enter new timesheets.
+- Consult and modify existing timesheets.
 
 ![Power App Home Screen](./assets/powerapp-home-screen.png)
