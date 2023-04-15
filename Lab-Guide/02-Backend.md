@@ -1,36 +1,36 @@
 # Iberian Technology Summit - Backend
-Introducción al desarrollo basado en Fusion Teams para ITS 2023
+Introduction to Fusion Teams Development for ITS 2023
 
-Los componentes que se van a usar en el Back-End son los siguientes: 
+The components to be used in the Back-End are the following:
 
-   1. [APIM](https://azure.microsoft.com/es-ES/services/api-management/): Azure API Management: Implementa puertas de enlace de API en paralelo con las API hospedadas en Azure, en otras nubes y en el entorno local para optimizar el flujo de tráfico de las API, satisfaciendo los requisitos de seguridad y cumplimiento normativo, proveyendo una experiencia de administración unificada y una observación completa de todas las API internas y externas.
-   2. [App Service](https://azure.microsoft.com/es-ES/services/app-service/): Permite compilar, implementar y escalar aplicaciones web y API de forma automática. En nuestro caso implementaremos, i alojaremos una aplicación .NET Core Web API.
-   3. [Cosmos DB](https://azure.microsoft.com/es-ES/services/cosmos-db/): Es una base de datos NoSQL sin servidor totalmente administrada para aplicaciones de alto rendimiento de cualquier tamaño o escala.
+   1. [APIM](https://azure.microsoft.com/en-us/services/api-management/): Enables you to deploy API gateways in parallel with APIs hosted in Azure, in other clouds and in the on-premises environment to optimize API traffic flow. Meet security and compliance requirements with a unified management experience and complete visibility into all internal and external APIs.
+   2. [App Service](https://azure.microsoft.com/en-us/services/app-service/): Compile, deploy and scale web applications and APIs automatically on your terms. In our case, we will create, publish and host a web API with .NET Core.
+   3. [Cosmos DB](https://azure.microsoft.com/en-us/services/cosmos-db/): Azure Cosmos DB is a fully managed serverless NoSQL database for high-performance applications of any size or scale.
 
-Empezamos con la creación de la solución que conformará el Backend. Para ello abrimos Visual Studio 2022 y creamos un nuevo proyecto, de tipo ASP.NET Core Web API:
+We start with the creation of the Backend solution. To do this we open Visual Studio 2022 and create a new project, of type ASP.NET Core Web API:
 
 <img width="514" alt="image" src="https://user-images.githubusercontent.com/18615795/227864928-b462fb8c-d55d-403c-955f-59a2688f0881.png">
 
-A continuación le damos un nombre y una ruta donde guardar la solución:
+We give it a name and a path where to save the solution:
 
 <img width="515" alt="image" src="https://user-images.githubusercontent.com/18615795/227864251-6820bd21-06fb-4a59-963f-785c999dbb53.png">
 
-Por último, seleccionamos la versión de .NET Core a utilizar (7.0), habilitando soporte para OpenAPI:
+We select the version of .NET Core to use (7.0), enabling OpenAPI support:
 
 <img width="514" alt="image" src="https://user-images.githubusercontent.com/18615795/227865219-4b81be4e-cd6d-48f6-8f40-c3cd28d0c69d.png">
 
-Una vez creada la solución, comprobamos e instalamos los Nuget Packages necesarios: 
+Once the solution is created, we check and install the necessary Nuget Packages:
 
 <img width="656" alt="image" src="https://user-images.githubusercontent.com/18615795/227865506-6384b566-fde6-492e-91e5-db304c707e66.png">
 
-- Microsoft.AspNetCore.OpenApi: Permite interactuar con las especificaciones de OpenAPI de los puntos de conexión. El paquete actúa como vínculo entre los modelos de OpenAPI definidos en el paquete y los puntos de conexión definidos en las API.
-- Microsoft.Azure.Cosmos / Microsoft.EntityFramework.Cosmos: Librerías que nos permiten conectarnos y trabajar con Azure Cosmos DB usando la API de SQL.
-- Newtonsoft.Json: Nos permite serializar y deserializar objetos, utilizados para la comunicación con Cosmos DB.
-- Swashbuckle.AspNetCore: Nos permite utilizar Swagger para documentar nuestras APIs.
+- Microsoft.AspNetCore.OpenApi: Allows interacting with the OpenAPI specifications of the connection points. The package acts as a link between the OpenAPI models defined in the package and the connection points defined in the APIs.
+- Microsoft.Azure.Cosmos / Microsoft.EntityFramework.Cosmos: Libraries that allow us to connect and work with Azure Cosmos DB using the SQL API.
+- Newtonsoft.Json: Allows us to serialize and deserialize objects used for communication with Cosmos DB.
+- Swashbuckle.AspNetCore: Allows us to use Swagger to document our APIs.
 
-Empezamos creando los tres modelos de datos que serán persistidos en la base de datos. Creamos una carpeta en la solución de nombre Models (Modelos), donde creamos tres clases:
+We start by creating the three data models that will be persisted in the database. We create a folder in the solution named Models, where we create three classes:
 
-1) Reserva (Booking)
+1) Booking
   ```cs
     public class Booking
     {
@@ -50,7 +50,7 @@ Empezamos creando los tres modelos de datos que serán persistidos en la base de
         public double Hours { get; set; }
     }
   ```
-2) Proyecto (Project)
+2) Project
   ```cs
     public class Project
     {
@@ -73,7 +73,7 @@ Empezamos creando los tres modelos de datos que serán persistidos en la base de
         public string CreatedBy { get; set; }        
     }
   ```
- 3) Recurso (Resource)
+ 3) Resource
   ```cs
     public class Resource
     {
@@ -88,7 +88,7 @@ Empezamos creando los tres modelos de datos que serán persistidos en la base de
     }
   ```
 
-A continuación, creamos las tres interficies de lo que serán nuestros servicios, que para un primer ejemplo pueden contener simplemente las operaciones CRUD (Create, Read, Update y Delete) de cada una de las entidades. Creamos una carpeta con nombre Interficies (Interfaces), y las añadimos. Por ejemplo, para Reservas (Bookings), creamos la IReservasSevicio.cs (IBookingsService.cs):
+Next, we create the three interfaces of what will be our services, which for a first example can simply contain the CRUD operations (Create, Read, Update and Delete) of each of the entities. We create a folder named Interficies (Interfaces), and add them. For example, for Bookings, we create the IBookingsService.cs:
 
   ```cs
     public interface IBookingsService
@@ -102,7 +102,8 @@ A continuación, creamos las tres interficies de lo que serán nuestros servicio
         Task UpdateBookingAsync(Booking booking);
     }
   ```
-El siguiente paso es crear los servicios que implementan las interficies. Creamos la carpeta Servicios (Services), y creamos los tres servicios. Por ejemplo, para Reservas (Bookings), creamos la clase BookingsService.cs:
+
+The next step is to create the services that implement the interfaces. We create the Services folder, and create the three services. For example, for Bookings, we create the class BookingsService.cs:
 
   ```cs
     public class BookingsService: IBookingsService  <-- Implementa la interficie
@@ -136,7 +137,7 @@ El siguiente paso es crear los servicios que implementan las interficies. Creamo
        
        //... Implementar el resto de métodos definidos en la interficie. La implementación completa está en la carpeta BizzSummitAPI del directorio raíz de este repo.
   ```
-Una vez tenemos los servicios, vamos a implementar los controladores (Controllers), usando la carpeta ya existente del mismo nombre. Creamos un fichero para cada controller. Por ejemplo, creamos el ReservasControlador.cs (BookingsController.cs):
+Once we have the services, we are going to implement the controllers, using the existing folder of the same name. We create a file for each controller. For example, we create the BookingsController.cs:
 
   ```cs
     [ApiController]
@@ -188,15 +189,15 @@ Una vez tenemos los servicios, vamos a implementar los controladores (Controller
         //... Implementar el resto de acciones para completar el CRUD. La implementación completa está en la carpeta BizzSummitAPI del directorio raíz de este repo.
   ```
 
-Configuramos los servicios que dependen del proyecto.
+We configure the services that depend on the project:
 
 <img width="600" alt="image" src="https://user-images.githubusercontent.com/18615795/227866703-c00bb8c4-a814-488b-98c4-8fb8272a3c97.png">
 
-En nuestra subscripción de Azure, creamos una Cosmos DB, preferiblemente dentro de un grupo de recursos propio al proyecto. Necesitamos definir los secretos de usuario, que contienen todos los valores necesarios para acceder a la Cosmos DB.
+In our Azure subscription, we create a Cosmos DB, preferably within a resource group specific to the project. We need to define the user secrets, which contain all the values needed to access the Cosmos DB.
 
-Primero, nos conectamos a la Cosmos DB usando el wizard que proporciona el VS.
+First, we connect to the Cosmos DB using the wizard provided by the VS.
 
-Segundo, creamos los user secrets necesarios para conectarnos des de nuestra solución:
+Second, we create the user secrets needed to connect from our solution:
 
 <img width="337" alt="image" src="https://user-images.githubusercontent.com/18615795/227867418-53bc6f0f-7039-4ae0-a5f0-6b571d5c430b.png">
 
@@ -213,18 +214,18 @@ Segundo, creamos los user secrets necesarios para conectarnos des de nuestra sol
 }
 ```
 
- El endpoint lo podemos encontrar directamente en la overview del componente Cosmos DB:
+The endpoint can be found directly in the overview of the Cosmos DB component:
  
  <img width="241" alt="image" src="https://user-images.githubusercontent.com/18615795/227871670-e41b0115-b874-4b27-9785-3635a4f6032c.png">
 
- También se encuentra dentro de Keys, donde tenéis que usar la Primary Key como Key en la solución:
+It is also inside Keys, where you have to use the Primary Key as Key in the solution:
 
  <img width="224" alt="image" src="https://user-images.githubusercontent.com/18615795/227871585-2a86e6f6-be93-4d09-a9b3-3ea638e164a5.png">
 
- Creamos una base de datos para el proyecto dentro de la Cosmos DB y configuramos, en la solución, la key DatabaseName.
+We create a database for the project within the Cosmos DB and configure, in the solution, the key DatabaseName.
 
 
-Tercero, editamos el fichero Program.cs, añadiendo como servicios (AddSingleton) mediante inyección de dependencias la inicialización única de la Cosmos DB y las colecciones:
+Third, we edit the Program.cs file, adding as services (AddSingleton) through dependency injection the unique initialization of the Cosmos DB and the collections:
 
 ```cs
 var builder = WebApplication.CreateBuilder(args);
@@ -250,7 +251,7 @@ builder.Services.AddSingleton<IResourcesService>(InitializeCosmosResourcesClient
 var app = builder.Build();
  ```
  
- En cada uno de los métodos InitializeCosmosXXX, nos aseguramos que la Cosmos DB y el container existe (sino lo creamos automáticamente) y creamos la instancia única del servicio:
+In each of the InitializeCosmosXXX methods, we make sure that the Cosmos DB and the container exists (otherwise we create it automatically) and we create the single instance of the service:
  
  ```cs
         private static async Task<BookingsService> InitializeCosmosBookingsClientInstanceAsync(string CosmosDBEndpoint, string CosmosDBKey, string CosmosDBDatabaseName, string CosmosDBBookingsContainer)
@@ -262,54 +263,54 @@ var app = builder.Build();
             return bookingsService;
         }
  ```
- Probamos que la aplicación funcione. La lanzamos en local (IIS Express) y comprobamos que Swagger esté bien configurado:
+We test that the application works. We launch it locally (IIS Express) and check that Swagger is properly configured:
  
  <img width="739" alt="image" src="https://user-images.githubusercontent.com/18615795/227871893-e194ef97-1666-439d-8a0f-131fa38d12de.png">
 
- El siguiente paso es publicar la aplicación en Azure. Para ello creamos, dentro de nuestra subscripción, un App Service Plan y un App Service:
+The next step is to publish the application in Azure. To do this we create, within our subscription, an App Service Plan and an App Service:
  
  <img width="922" alt="image" src="https://user-images.githubusercontent.com/18615795/227872012-8faa093c-0dc3-4ef3-a912-4ce4111890af.png">
  
- Creamos también un componente API Management y una Blank API
+We also created an API Management component and a Blank API.
  
  <img width="869" alt="image" src="https://user-images.githubusercontent.com/18615795/227873213-0c8c3a5c-f799-4c1e-ba21-e83843826184.png">
 
- En nuestra solución, botón derecho -> Publicar:
+In our solution, right click -> Publish:
  
  <img width="308" alt="image" src="https://user-images.githubusercontent.com/18615795/227872242-10b85b3e-ddf5-43e8-9e70-23d3bfd186ec.png">
 
- Configuramos un nuevo destino y seguimos el Wizard, seleccionando el componente Web App creado en Azure:
+We configure a new destination and follow the Wizard, selecting the Web App component created in Azure:
  
  ![image](https://user-images.githubusercontent.com/18615795/227872953-40e66944-ac43-4dd9-81ce-226e5bc0f792.png)
  
- Seleccionamos en el último paso el componente API Management y la Blank API que hemos creado:
+In the last step we select the API Management component and the Blank API we have created:
 
 ![image](https://user-images.githubusercontent.com/18615795/227874659-f3b01c31-9ec3-429d-91f1-762bddff49d7.png)
  
- Publicamos la solución. Una vez completado, se abrirá la URL de la webapp en Azure con la solución desplegada:
+We publish the solution. Once completed, the URL of the webapp will open in Azure with the deployed solution:
  
  ![image](https://user-images.githubusercontent.com/18615795/184013829-f046e732-8156-4166-b06d-349d7e877fdd.png)
  
- Por último, creamos también en Azure un nuevo componente, API Management
+Finally, we also created a new component in Azure, API Management.
  
  ![image](https://user-images.githubusercontent.com/18615795/184012127-8139c744-6400-40e9-9916-0975fc554e7d.png)
 
- Copiamos, desde la aplicación web, el link a la especificación OpenAPI:
+We copy, from the web application, the link to the OpenAPI specification:
  
  ![image](https://user-images.githubusercontent.com/18615795/184014085-fda0f48f-e3b5-4788-a764-abdd395b3c1e.png)
 
- En el componente API Management, creamos una nueva API a partir de la definición OpenAPI:
+In the API Management component, we create a new API from the OpenAPI definition:
  
  ![image](https://user-images.githubusercontent.com/18615795/184014278-1e477069-1bf9-4565-a770-c29be4f99a28.png)
 
- Introducimos el link:
+Enter the link:
  
  ![image](https://user-images.githubusercontent.com/18615795/184014488-319a088b-117c-4c0e-bcf4-eb607c302d51.png)
 
- Comprobamos que se ha importado correctamente:
+We check that it has been imported correctly:
  
  ![image](https://user-images.githubusercontent.com/18615795/184014661-24a61d78-efdb-4132-b2c9-2a6a4d325f7a.png)
 
- Con esto, tenemos el backend listo y podemos pasar al siguiente bloque, que es la creación del Custom Conector y su uso en Power Platform.
+With this, we have the backend ready and we can move on to the next block, which is the creation of the Custom Connector and its use in Power Platform.
  
- No hace falta decir que estamos obviando, por motivos de tiempo y facilidad de uso dentro del Workshop, pasos absolutamente necesarios para poder poner la aplicación en un entorno de producción: Autenticación / Autorización, Logging, etc. Estamos encantados, si estáis interesados, en que nos contactéis en cualquier momento para profundizar más en cualquier duda que tengáis acerca de ello.
+Needless to say, for reasons of time and ease of use within the Workshop, we are skipping absolutely necessary steps to be able to put the application in a production environment: Authentication / Authorization, Logging, etc. We are happy, if you are interested, to be contacted at any time to deepen any questions you may have about it.
