@@ -290,26 +290,6 @@ In the last step we select the API Management component and the Blank API we hav
 We publish the solution. Once completed, the URL of the webapp will open in Azure with the deployed solution:
  
  <img width="938" alt="image" src="https://user-images.githubusercontent.com/18615795/232249807-b6ca7d71-08ff-450a-96b3-8acc507df4ed.png">
- 
-Finally, we also created a new component in Azure, API Management.
- 
- <img width="400" alt="image" src="https://user-images.githubusercontent.com/18615795/232249842-cf9915a9-614e-4f39-89bc-f2c771960c0e.png">
-
-We copy, from the web application, the link to the OpenAPI specification:
- 
- <img width="495" alt="image" src="https://user-images.githubusercontent.com/18615795/232249874-8abf920a-60a9-4458-af16-771c34df6616.png">
-
-In the API Management component, we create a new API from the OpenAPI definition:
- 
- ![image](https://user-images.githubusercontent.com/18615795/184014278-1e477069-1bf9-4565-a770-c29be4f99a28.png)
-
-Enter the link:
- 
- ![image](https://user-images.githubusercontent.com/18615795/184014488-319a088b-117c-4c0e-bcf4-eb607c302d51.png)
-
-We check that it has been imported correctly:
- 
- ![image](https://user-images.githubusercontent.com/18615795/184014661-24a61d78-efdb-4132-b2c9-2a6a4d325f7a.png)
 
 With this, we have the backend ready and we can move on to the next block, which is the creation of the Custom Connector and its use in Power Platform.
  
