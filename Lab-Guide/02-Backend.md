@@ -293,7 +293,7 @@ We publish the solution. Once completed, the URL of the webapp will open in Azur
  
 Finally, we also created a new component in Azure, API Management.
  
- ![image](https://user-images.githubusercontent.com/18615795/184012127-8139c744-6400-40e9-9916-0975fc554e7d.png)
+ <img width="400" alt="image" src="https://user-images.githubusercontent.com/18615795/232249842-cf9915a9-614e-4f39-89bc-f2c771960c0e.png">
 
 We copy, from the web application, the link to the OpenAPI specification:
  
