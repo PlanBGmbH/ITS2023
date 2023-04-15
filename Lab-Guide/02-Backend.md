@@ -289,7 +289,7 @@ In the last step we select the API Management component and the Blank API we hav
  
 We publish the solution. Once completed, the URL of the webapp will open in Azure with the deployed solution:
  
- ![image](https://user-images.githubusercontent.com/18615795/184013829-f046e732-8156-4166-b06d-349d7e877fdd.png)
+ <img width="938" alt="image" src="https://user-images.githubusercontent.com/18615795/232249807-b6ca7d71-08ff-450a-96b3-8acc507df4ed.png">
  
 Finally, we also created a new component in Azure, API Management.
  
