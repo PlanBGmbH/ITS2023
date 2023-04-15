@@ -291,6 +291,33 @@ We publish the solution. Once completed, the URL of the webapp will open in Azur
  
  <img width="938" alt="image" src="https://user-images.githubusercontent.com/18615795/232249807-b6ca7d71-08ff-450a-96b3-8acc507df4ed.png">
 
-With this, we have the backend ready and we can move on to the next block, which is the creation of the Custom Connector and its use in Power Platform.
- 
+
+With this, we have the backend ready and published to azure.
+
+A new feature, currently in VS 2022 Preview (17.6.0 or greater), is the possibility of debugging from within Visual Studio the Backend even within the Power Platform itself without the need of deploying anything to azure first.
+
+To do so, we need to, within Connected Services, add a new Service Dependency to Microsoft Power Platform:
+
+![Add Service Dependency](./assets/vs-connected-services-power-platform.png)
+
+You will be asked to:
+
+![Connect to PP](./assets/vs-connect-to-pp.png)
+
+- Select a Power Platform environment.
+- Select an existing or create a new custom connector.
+- Auto generate the OpenAPI v2 specification or select a specification file path.
+- Select a public dev tunnel or create a new one.
+
+Once done, if we start the project directly in Visual Studio, instead of localhost, the dev tunnel will be used:
+
+![Dev Tunnel](./assets/vs-devtunnel.png)
+
+And a new custom connector (in case you created a new one in VS) will be present in PP:
+
+![Custom Connector](./assets/vs-pp-customconnector.png)
+
+While VS solution is running, any PP component that uses the custom connector is using the dev tunnel, so any breakpoint within the solution will be hit, allowing to debug the backend while is used in the PP.
+
+
 Needless to say, for reasons of time and ease of use within the Workshop, we are skipping absolutely necessary steps to be able to put the application in a production environment: Authentication / Authorization, Logging, etc. We are happy, if you are interested, to be contacted at any time to deepen any questions you may have about it.

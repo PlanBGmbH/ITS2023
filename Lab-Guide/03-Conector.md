@@ -32,7 +32,7 @@ We can see that thanks to the import of the file, the actions are already define
 Finally we will save the changes by clicking on *Create Connector*. If everything went well, you should see the new connector in the list of custom connectors:
 ![Custom connector list](./assets/custom-connector-list.png)
 
-### Use of the custo connector ###
+### Use of the custom connector ###
 The first time we want to use the custom connector, we will have to create the connection, in which we will indicate the value of the *API Key*, which, if you remember, is necessary to authenticate the requests.
 ![Power Automate create connection](./assets/flow-create-connection.png)
 
