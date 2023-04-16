@@ -320,4 +320,4 @@ And a new custom connector (in case you created a new one in VS) will be present
 While VS solution is running, any PP component that uses the custom connector is using the dev tunnel, so any breakpoint within the solution will be hit, allowing to debug the backend while is used in the PP.
 
 
-Needless to say, for reasons of time and ease of use within the Workshop, we are skipping absolutely necessary steps to be able to put the application in a production environment: Authentication / Authorization, Logging, etc. We are happy, if you are interested, to be contacted at any time to deepen any questions you may have about it.
+Needless to say, for reasons of time and ease of use within this session, we are skipping necessary steps to be able to put the application in a production environment: Authentication / Authorization, Logging, etc. We are happy, if you are interested, to be contacted at any time to deepen any questions you may have about it.
