@@ -1,5 +1,5 @@
-# Iberian Technology Summit - Crear el conector personalizado
-Introducción al desarrollo basado en Fusion Teams para ITS 2023
+# Iberian Technology Summit - Create Custom Connector
+Introduction to Fusion Teams development at ITS 2023
 
 ## Creation of the solution ##
 Before starting to create our application in Power Apps, we recommend grouping all the components under the same [solution](https://docs.microsoft.com/es-es/power-apps/maker/data-platform/solutions-overview). In this sense, we want to have the application, the flows and the customized connector in the same solution, facilitating all the tasks related to the maintenance of our time management tool.
@@ -12,6 +12,6 @@ Now we are ready to develop our time management application in Power Apps. The a
 - Create, modify or delete the assignment of people to projects.
 2. Access by users:
 - Enter new timesheets.
-- Consult and modify existing timesheets.
+- Search and modify existing timesheets.
 
 ![Power App Home Screen](./assets/powerapp-home-screen.png)

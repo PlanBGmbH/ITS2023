@@ -16,6 +16,7 @@ We can also see that there is already the possibility to create the connector di
 
 ### Connector creation in our Power Platform environment ###
 With the definition of the operations we can now create our custom connector. To do this, we will go to the custom connectors section and create the connector from the OpenAPI file we generated earlier:
+
 ![Custom connector from OpenAPI file](./assets/custom-connector-import-open-api.png)
 
 Then we must indicate the following data:
